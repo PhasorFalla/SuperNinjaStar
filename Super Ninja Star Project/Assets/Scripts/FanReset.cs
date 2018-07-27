@@ -8,7 +8,6 @@ public class FanReset : MonoBehaviour {
     public Transform spawnpoint;
     public static FanReset deathzone;
     private GameObject entityToReset;
-    public int deaths;
     public GameController GC;
 
     private void Awake()
@@ -41,7 +40,7 @@ public class FanReset : MonoBehaviour {
             entity.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
 
-        deaths += 1;
+        ScoreManager.scoreManager.DeathCount();
         entity.transform.position = spawnpoint.position;
     }
 }

@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinPickups : MonoBehaviour {
+public class CoinPickups : MonoBehaviour
+{
 
     public GameObject CoinVFX;
+    
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -12,6 +14,7 @@ public class CoinPickups : MonoBehaviour {
         if (collision.tag == "Player")
         {
             Instantiate(CoinVFX, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            ScoreManager.scoreManager.CollectCoin();
             Destroy(gameObject);
         }
     }

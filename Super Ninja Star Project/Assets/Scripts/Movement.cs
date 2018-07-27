@@ -15,8 +15,6 @@ public class Movement : MonoBehaviour
     private Transform myTransform;
     public int timesJumped;
     [HideInInspector]
-    public int CoinsCollected;
-    public CoinCounter cCounter;
     public GameObject DeathVFX;
 
     void Start()
@@ -73,19 +71,19 @@ public class Movement : MonoBehaviour
             rb.AddForce(new Vector2(0, Bounce), ForceMode2D.Impulse);
         }
 
-        if (collision.gameObject.tag == "Enemies") 
-        {
-            if (!grapple.tethered)
-            {
-                Destroy(collision.gameObject);
-                Instantiate(DeathVFX, collision.gameObject.transform.position, Quaternion.identity);
-            }
-            else
-            {
-                grapple.Detatch();
-                FanReset.deathzone.ResetEntity(gameObject);
-            }
-        }
+        //if (collision.gameObject.tag == "Enemies") 
+        //{
+        //    if (!grapple.tethered)
+        //    {
+        //        Destroy(collision.gameObject);
+        //        Instantiate(DeathVFX, collision.gameObject.transform.position, Quaternion.identity);
+        //    }
+        //    else
+        //    {
+        //        grapple.Detatch();
+        //        FanReset.deathzone.ResetEntity(gameObject);
+        //    }
+        //}
 
         if (collision.gameObject.tag == "Bomb")
         {
@@ -96,10 +94,6 @@ public class Movement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Coin")
-        {
-            CoinsCollected++;
-        }
     }
 
     void OnCollisionExit2D(Collision2D collision)

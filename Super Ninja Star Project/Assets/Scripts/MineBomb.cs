@@ -16,6 +16,7 @@ public class MineBomb : MonoBehaviour {
         }
     }
 
+
     IEnumerator bombResetTimer()
     {
         yield return new WaitForSeconds(3);
