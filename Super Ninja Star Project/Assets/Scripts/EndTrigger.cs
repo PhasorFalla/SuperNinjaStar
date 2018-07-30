@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EndTrigger : MonoBehaviour {
+public class EndTrigger : MonoBehaviour
+{
 
     public Transform Canvas;
     private bool EndResults;
