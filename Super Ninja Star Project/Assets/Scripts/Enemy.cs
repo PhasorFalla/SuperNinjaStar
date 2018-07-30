@@ -23,13 +23,23 @@ public class Enemy : MonoBehaviour
             }
             else
             {
-                Instantiate(deathVFX, transform.position, Quaternion.identity);
-                Destroy(gameObject);
+                EnemyDeath();
             }
 
 
 
 
         }
+    }
+
+    public void EnemyDeath()
+    {
+        Instantiate(deathVFX, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
+
+    public void HurtPlayer()
+    {
+
     }
 }
