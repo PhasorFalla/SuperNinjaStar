@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4022344590936750}
   - component: {fileID: 212507336619524850}
+  - component: {fileID: 114229223234087712}
   m_Layer: 0
   m_Name: Checkpoint
   m_TagString: Untagged
@@ -40,6 +41,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114229223234087712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1257394444245668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d966901f8ce57f04d9093dcc4be6c31c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spawnpoint: {fileID: 0}
 --- !u!212 &212507336619524850
 SpriteRenderer:
   m_ObjectHideFlags: 1

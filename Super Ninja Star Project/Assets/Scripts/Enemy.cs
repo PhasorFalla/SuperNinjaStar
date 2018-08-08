@@ -9,8 +9,6 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        print("hit something");
-
         if (other.gameObject.CompareTag("Player"))
         {
 
@@ -23,6 +21,8 @@ public class Enemy : MonoBehaviour
             }
             else
             {
+                print("Enemy death");
+
                 EnemyDeath();
             }
 

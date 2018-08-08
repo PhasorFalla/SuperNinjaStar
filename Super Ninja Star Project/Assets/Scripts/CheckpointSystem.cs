@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckpointSystem : MonoBehaviour {
+public class CheckpointSystem : MonoBehaviour
+{
 
     public Transform Spawnpoint;
 
