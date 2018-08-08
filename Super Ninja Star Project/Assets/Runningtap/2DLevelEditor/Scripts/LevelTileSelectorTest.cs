@@ -24,6 +24,9 @@ namespace Runningtap
         private int currentPallete;
         private int setState;
 
+
+        bool playerSet;
+
         public enum Mode
         {
             Paint,
@@ -38,6 +41,17 @@ namespace Runningtap
         private void Start()
         {
             levelData = GetComponent<LevelData>();
+
+            currentPallete = 0;
+
+            var group = TileGroup[currentPallete].GetComponent<UITileGroupSet>();
+
+            TilePallete = new GameObject[group.TileObjects.Length];
+
+            for (int i = 0; i < group.TileObjects.Length; i++)
+            {
+                TilePallete[i] = group.TileObjects[i];
+            }
         }
 
         private void OnEnable()
@@ -90,21 +104,38 @@ namespace Runningtap
 
             if (cursorMode == Mode.Paint)
             {
+                //if (TilePallete[currentSelection].gameObject.CompareTag("Player"))
+                //{
+                //    if (IsCellEmpty(x, y))
+                //    {
+                //        playerSet = true;
+                //    }
+
+                //    if(!IsCellEmpty(x, y))
+                //    {
+                //        Destroy(levelData.xy[x][y]);
+                //        levelData.xy[x][y] = Instantiate(TilePallete[currentSelection], position, Quaternion.identity, Level.transform);
+                //    }
+                //}
+
+
                 if (IsCellEmpty(x, y))
                 {
                     levelData.xy[x][y] = Instantiate(TilePallete[currentSelection], position, Quaternion.identity, Level.transform);
+
                 }
                 else if (levelData.xy[x][y] != TilePallete[currentSelection])
                 {
                     Destroy(levelData.xy[x][y]);
                     levelData.xy[x][y] = Instantiate(TilePallete[currentSelection], position, Quaternion.identity, Level.transform);
-                }
-
-                if(currentSelection == 3)
-                {
-                    cursorMode = Mode.Set;
 
                 }
+
+                //if(currentSelection == 3)
+                //{
+                //    cursorMode = Mode.Set;
+
+                //}
             }
             else if (cursorMode == Mode.Erase)
             {
@@ -139,19 +170,23 @@ namespace Runningtap
         {
             if (value)
             {
-                if (currentPallete > 0)
-                {
-                    currentPallete--;
+                currentPallete = 0;
 
-                    
-                }
-                else
-                {
 
-                }
             }
             else
             {
+                currentPallete = 1;
+
+            }
+
+            var group = TileGroup[currentPallete].GetComponent<UITileGroupSet>();
+
+            TilePallete = new GameObject[group.TileObjects.Length];
+
+            for(int i = 0; i< group.TileObjects.Length; i++)
+            {
+                TilePallete[i] = group.TileObjects[i];
             }
         }
         
@@ -183,6 +218,15 @@ namespace Runningtap
                 movingTile = false;
                 yield return null;
             }
+        }
+
+        public void StartPlay()
+        {
+            //if (!playerSet) { return; }
+            //if(levelData.Player == null) { return; }
+
+            levelData.SetPlayer(true);
+
         }
     }
 }
