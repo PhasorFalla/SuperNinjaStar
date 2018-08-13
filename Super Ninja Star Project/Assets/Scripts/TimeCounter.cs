@@ -11,13 +11,13 @@ public class TimeCounter : MonoBehaviour {
 
 	
 	void Update () {
-        TimeCount += Time.deltaTime *2;
+        TimeCount += Time.deltaTime;
 
         float minutes = Mathf.Floor(TimeCount / 60);
-        float miliseconds = (Mathf.Round(TimeCount * 100) / 100);
+        string seconds = (TimeCount % 60).ToString("f2");
 
-        Timer.text = minutes.ToString() + "." + miliseconds;
-        Timer2.text = minutes.ToString() + "." + miliseconds;
+        Timer.text = minutes.ToString() + "." + seconds;
+        Timer2.text = minutes.ToString() + "." + seconds;
 
     }
 }

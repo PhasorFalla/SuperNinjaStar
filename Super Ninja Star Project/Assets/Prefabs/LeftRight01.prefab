@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 61812526305552902}
   - component: {fileID: 114874347424102712}
   - component: {fileID: 61039404486714764}
+  - component: {fileID: 114849567694893766}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemies
@@ -221,6 +222,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6025304a2d342af429ce00a46b72567d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114849567694893766
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1249223874994390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59fa42c7ca774b141bc3c67fe829a354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathVFX: {fileID: 1419950544844340, guid: a2131de8615b60649a26d56821d7a0c3, type: 2}
 --- !u!114 &114874347424102712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -252,6 +265,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:

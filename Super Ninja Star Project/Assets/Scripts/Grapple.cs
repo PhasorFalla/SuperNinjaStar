@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Grapple : MonoBehaviour
 {
-
+    public GameObject bubble;
     public LineRenderer line;
     SpringJoint2D joint;
     Vector3 targetPos;
@@ -12,6 +12,7 @@ public class Grapple : MonoBehaviour
     public float distance = 10f;
     public LayerMask mask;
     public bool tethered;
+    
     Movement playerMovement;
 
     // Use this for initialization
@@ -22,6 +23,12 @@ public class Grapple : MonoBehaviour
         joint.enabled = false;
         line.enabled = false;
 
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(transform.position, distance);
     }
 
     // Update is called once per frame
@@ -45,9 +52,12 @@ public class Grapple : MonoBehaviour
                 line.SetPosition(0, transform.position);
                 line.SetPosition(1, hit.point);
                 tethered = true;
+                bubble.SetActive(false);
                 playerMovement.timesJumped = 0;
             }
         }
+
+        
 
         line.SetPosition(0, transform.position);
 
@@ -66,5 +76,6 @@ public class Grapple : MonoBehaviour
         joint.enabled = false;
         line.enabled = false;
         tethered = false;
+        bubble.SetActive(true);
     }
 }
