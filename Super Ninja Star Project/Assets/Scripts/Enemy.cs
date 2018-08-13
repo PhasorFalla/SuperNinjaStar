@@ -12,7 +12,6 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
 
-            print("hit player");
             if (other.gameObject.GetComponent<Grapple>().tethered)
             {
                 other.gameObject.GetComponent<Grapple>().Detatch();
@@ -21,7 +20,6 @@ public class Enemy : MonoBehaviour
             }
             else
             {
-                print("Enemy death");
 
                 EnemyDeath();
             }
