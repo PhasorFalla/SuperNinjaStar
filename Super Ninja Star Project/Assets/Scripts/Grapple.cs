@@ -12,6 +12,8 @@ public class Grapple : MonoBehaviour
     public float distance = 10f;
     public LayerMask mask;
     public bool tethered;
+    public AudioClip tetherSFX;
+    public AudioClip bubblePopSFX;
     
     Movement playerMovement;
 
@@ -51,8 +53,15 @@ public class Grapple : MonoBehaviour
                 line.enabled = true;
                 line.SetPosition(0, transform.position);
                 line.SetPosition(1, hit.point);
+
+
                 tethered = true;
-                bubble.SetActive(false);
+
+                if(bubble != null) { bubble.SetActive(false); }
+
+                if (tetherSFX != null) { AudioManager.audioManager.PlaySound(tetherSFX); }
+                if(bubblePopSFX != null) { AudioManager.audioManager.PlaySound(bubblePopSFX); }
+
                 playerMovement.timesJumped = 0;
             }
         }

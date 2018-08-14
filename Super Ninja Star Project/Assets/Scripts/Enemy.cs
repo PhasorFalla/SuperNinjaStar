@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
+    public AudioClip deathSFX;
     public GameObject deathVFX;
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -32,6 +32,10 @@ public class Enemy : MonoBehaviour
 
     public void EnemyDeath()
     {
+        if(deathSFX != null)
+        {
+            AudioManager.audioManager.PlaySound(deathSFX);
+        }
         Instantiate(deathVFX, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
