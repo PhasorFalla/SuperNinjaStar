@@ -7,9 +7,12 @@ public class ScoreManager : MonoBehaviour
 {
     public int coinCount;
     public Text coinCountText;
+    public Text coinCountResult;
 
     public int deathCount;
     public Text deathCountText;
+    public Text deathCountResult;
+
 
     public static ScoreManager scoreManager;
 
@@ -21,12 +24,15 @@ public class ScoreManager : MonoBehaviour
 
         deathCountText.text = "0";
         coinCountText.text = "0 /50";
+        coinCountResult.text = coinCount.ToString();
+        deathCountResult.text = deathCount.ToString();
     }
 
     public void CollectCoin()
     {
         coinCount++;
         coinCountText.text = coinCount.ToString() + " /50";
+        coinCountResult.text = coinCount.ToString();
 
     }
 
@@ -39,6 +45,7 @@ public class ScoreManager : MonoBehaviour
     {
         deathCount++;
         deathCountText.text = deathCount.ToString();
+        deathCountResult.text = deathCount.ToString();
     }
 
 }
